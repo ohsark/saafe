@@ -30,7 +30,7 @@ export default function Organisation() {
       <input type="text" className="input" />
       <label className="block font-medium mt-5 mb-1">Email</label>
       <input type="email" className="input" />
-      <label className="block font-medium mt-5 mb-1">Location</label>
+      <label className="block font-medium mt-5 mb-1">Telephone / Mobile</label>
       <input type="tel" className="input" />
       <button className="btn mt-5 mb-1" onClick={() => navigate('/sample-type')}>Next</button>
     </FormWrapper>
