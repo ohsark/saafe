@@ -21,7 +21,7 @@ export default function ARGsPage() {
           </label>
           <YesNoButtons value={hasARGs} onChange={setHasARGs} />
           {hasARGs === 'yes' && (
-            <div>
+            <div className='mt-5'>
               <label className="block font-medium mb-1">
                 Which column contains the ARGs? e.g. arg_gene_col
               </label>
@@ -29,7 +29,7 @@ export default function ARGsPage() {
                 className="input mt-2 w-full"
                 value={argCol}
                 onChange={(e) => setArgCol(e.target.value)}
-                placeholder="Which column contains the ARGs? e.g. arg_gene_col"
+                placeholder="Column name"
               />
             </div>
           )}

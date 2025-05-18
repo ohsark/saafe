@@ -68,7 +68,7 @@ export default function MicroorganismPage() {
               className="input w-full"
               value={longColumn}
               onChange={(e) => setLongColumn(e.target.value)}
-              placeholder="e.g. organism_name_col"
+              placeholder="Column name"
             />
           </div>
         )}
