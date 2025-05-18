@@ -21,12 +21,17 @@ export default function ARGsPage() {
           </label>
           <YesNoButtons value={hasARGs} onChange={setHasARGs} />
           {hasARGs === 'yes' && (
-            <input
-              className="input mt-2 w-full"
-              value={argCol}
-              onChange={(e) => setArgCol(e.target.value)}
-              placeholder="Which column contains the ARGs? e.g. arg_gene_col"
-            />
+            <div>
+              <label className="block font-medium mb-1">
+                Which column contains the ARGs? e.g. arg_gene_col
+              </label>
+              <input
+                className="input mt-2 w-full"
+                value={argCol}
+                onChange={(e) => setArgCol(e.target.value)}
+                placeholder="Which column contains the ARGs? e.g. arg_gene_col"
+              />
+            </div>
           )}
         </div>
 
