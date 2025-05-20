@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Trash2 } from 'lucide-react';
+import { Trash2, Info } from 'lucide-react';
 import FormWrapper from '../components/FormWrapper';
 import { useNavigate } from 'react-router-dom'
 
@@ -28,12 +28,26 @@ export default function MicroorganismPage() {
   };
 
   return (
-    <FormWrapper title="Microorganism">
+    <FormWrapper title="Microorganisms">
       <div className="space-y-6 max-w-2xl">
 
         {/* 1. Presence */}
         <div>
-          <label className="block font-medium mb-2">Does the dataset contain microorganism information?</label>
+          <div className="flex items-center gap-2 mb-2">
+            <label className="font-medium">
+              Does the dataset contain microorganism information?
+            </label>
+
+            <div className="relative w-fit">
+              <div className="group w-fit cursor-pointer">
+                <Info className="text-sm w-[18px] text-[#aaa]" />
+
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                  The values in the column will be matched against a list of standardised microorganism names sourced from FAO and WHO.
+                </div>
+              </div>
+            </div>
+          </div>
           <YesNoButtons value={hasMicroorganism} onChange={setHasMicroorganism} />
         </div>
 
@@ -132,7 +146,19 @@ export default function MicroorganismPage() {
           <YesNoButtons value={hasPhenotype} onChange={setHasPhenotype} />
         </div>
 
-        <button className="btn mt-5 mb-1" onClick={() => navigate('/ast')}>Next</button>
+        {hasPhenotype === 'yes' && (
+          <div>
+            <label className="block font-medium mb-1">
+              Which column has resistance phenotype values?
+            </label>
+            <input className="input w-full" placeholder="Column name" />
+          </div>
+        )}
+
+        <div className='flex justify-between mt-5'>
+          <button className="btn bg-gray-100 hover:bg-gray-200 text-black " onClick={() => navigate('/antimicrobial')}>Back</button>
+          <button className="btn" onClick={() => navigate('/ast')}>Next</button>
+        </div>
 
       </div>
     </FormWrapper>

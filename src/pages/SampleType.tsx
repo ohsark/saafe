@@ -134,7 +134,11 @@ export default function SampleType() {
               )}
           </>
         )}
-        <button className="btn mt-5 mb-1" onClick={() => navigate('/antimicrobial')}>Next</button>
+        <div className='flex justify-between mt-5'>
+          <button className="btn bg-gray-100 hover:bg-gray-200 text-black " onClick={() => navigate('/organisation')}>Back</button>
+          <button className="btn" onClick={() => navigate('/antimicrobial')}>Next</button>
+        </div>
+        
       </div>
     </FormWrapper>
   );

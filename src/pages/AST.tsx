@@ -7,6 +7,7 @@ export default function ASTPage() {
   const [guideline, setGuideline] = useState('');
   const [version, setVersion] = useState('');
   const [method, setMethod] = useState('');
+  const [hasMIC, setHasMIC] = useState<'yes' | 'no' | null>(null);
 
   const [columns, setColumns] = useState({
     total: '',
@@ -66,6 +67,21 @@ export default function ASTPage() {
           </div>
         </section>
 
+        {/* MIC Info */}
+        <div>
+          <label className="block font-medium mb-2">Is MIC (minimum inhibitory concentration) info present?</label>
+          <YesNoButtons value={hasMIC} onChange={setHasMIC} />
+        </div>
+
+        {hasMIC === 'yes' && (
+          <div>
+            <label className="block font-medium mb-1">
+              Which column has MIC values?
+            </label>
+            <input className="input w-full" placeholder="Column name" />
+          </div>
+        )}
+
         {/* Section 2: AST Result Columns */}
         <section className="space-y-4">
           <h2 className="text-lg font-semibold text-gray-800">
@@ -113,7 +129,10 @@ export default function ASTPage() {
             onChange={(v) => handleColumnChange('nonWildType', v)}
           />
         </section>
-        <button className="btn mt-5 mb-1" onClick={() => navigate('/args')}>Next</button>
+        <div className='flex justify-between mt-5'>
+          <button className="btn bg-gray-100 hover:bg-gray-200 text-black " onClick={() => navigate('/microorganism')}>Back</button>
+          <button className="btn" onClick={() => navigate('/residues')}>Next</button>
+        </div>
       </div>
     </FormWrapper>
   );
@@ -140,4 +159,37 @@ function Field({
       />
     </div>
   );
+}
+
+// Yes/No toggle component
+function YesNoButtons({
+  value,
+  onChange,
+}: {
+  value: 'yes' | 'no' | null;
+  onChange: (val: 'yes' | 'no') => void;
+}) {
+  return (
+    <div className="flex gap-4">
+      <button
+        type="button"
+        onClick={() => onChange('yes')}
+        className={buttonClass(value === 'yes')}
+      >
+        Yes
+      </button>
+      <button
+        type="button"
+        onClick={() => onChange('no')}
+        className={buttonClass(value === 'no')}
+      >
+        No
+      </button>
+    </div>
+  );
+}
+
+// Shared button style
+function buttonClass(active: boolean) {
+  return `px-4 py-2 border rounded ${active ? 'bg-saafe text-white' : 'bg-white text-gray-800'}`;
 }

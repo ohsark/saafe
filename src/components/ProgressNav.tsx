@@ -7,6 +7,7 @@ export const steps = [
   { label: 'Antimicrobial presence',    path: '/antimicrobial' },
   { label: 'Microorganisms',            path: '/microorganism' },
   { label: 'AST',                       path: '/ast'           },
+  { label: 'Residues',                  path: '/residues'           },
   { label: 'ARGs',                      path: '/args'          }
 ] as const;
 

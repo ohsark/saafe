@@ -8,7 +8,9 @@ import SampleType from './pages/SampleType';
 import AntimicrobialPresenceData from './pages/Antimicrobial';
 import MicroorganismPage from './pages/Microorganism';
 import ASTPage from './pages/AST';
+import Residues from './pages/Residues';
 import ARGsPage from './pages/ARGs';
+import Review from './pages/Review';
 
 export default function App() {
   const location = useLocation();
@@ -46,7 +48,9 @@ export default function App() {
             <Route path="/antimicrobial"   element={<AntimicrobialPresenceData />} />
             <Route path="/microorganism"   element={<MicroorganismPage />} />
             <Route path="/ast"             element={<ASTPage />} />
+            <Route path="/residues"        element={<Residues />} />
             <Route path="/args"            element={<ARGsPage />} />
+            <Route path="/review"          element={<Review />} />
           </Routes>
         </main>
       </div>

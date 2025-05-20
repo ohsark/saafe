@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import FormWrapper from '../components/FormWrapper';
+import { useNavigate } from 'react-router-dom'
 
 export default function ARGsPage() {
+  const navigate = useNavigate()
   const [hasARGs, setHasARGs] = useState<'yes' | 'no' | null>(null);
   const [hasMethod, setHasMethod] = useState<'yes' | 'no' | null>(null);
   const [hasResistance, setHasResistance] = useState<'yes' | 'no' | null>(null);
@@ -57,7 +59,7 @@ export default function ARGsPage() {
         {hasARGs === 'yes' && (
           <div>
             <label className="block font-medium mb-2">
-              Is there a column indicating the antimicrobial class or resistance type?
+              Is there a column indicating the antimicrobial class or resistance type encoded by the gene?
             </label>
             <YesNoButtons value={hasResistance} onChange={setHasResistance} />
             {hasResistance === 'yes' && (
@@ -71,7 +73,10 @@ export default function ARGsPage() {
           </div>
         )}
       </div>
-      <button className="btn mt-5 mb-1">Submit</button>
+      <div className='flex justify-between mt-5'>
+          <button className="btn bg-gray-100 hover:bg-gray-200 text-black " onClick={() => navigate('/residues')}>Back</button>
+          <button className="btn" onClick={() => navigate('/review')}>Submit for review</button>
+        </div>
     </FormWrapper>
   );
 }

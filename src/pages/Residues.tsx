@@ -1,31 +1,23 @@
 import { useState } from 'react';
 import FormWrapper from '../components/FormWrapper';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import { Info } from 'lucide-react';
 
-export default function AntimicrobialPresenceData() {
+export default function Residues() {
   const navigate = useNavigate()
   const [hasMethod, setHasMethod] = useState<'yes' | 'no' | null>(null);
+  const [toAppendMRL, setAppendMRL] = useState<'yes' | 'no' | null>(null);
   const [hasConcentration, setHasConcentration] = useState<'yes' | 'no' | null>(null);
   const [metabolites, setMetabolites] = useState<'yes' | 'no' | 'not_sure' | null>(null);
 
   return (
-    <FormWrapper title="Antimicrobial use data">
+    <FormWrapper title="Antimicrobial residues">
       <div className="space-y-6 max-w-2xl">
 
         {/* Antimicrobial column */}
         <div>
           <label className="block font-medium mb-1">
-            Which column lists the antimicrobials?
-            <div className="relative group cursor-pointer">
-              <span className="text-white bg-gray-500 rounded-full w-5 h-5 flex items-center justify-center text-sm">
-                i
-              </span>
-
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                This refers to whether the data includes any columns about bacteria, viruses, or fungi present in the sample.
-              </div>
-            </div>
+            Which column lists the antimicrobials residues?
           </label>
           <input className="input w-full" placeholder="Column name" />
         </div>
@@ -70,9 +62,58 @@ export default function AntimicrobialPresenceData() {
           </div>
         )}
 
+        <div>
+          <label className="block font-medium mb-2">
+            Would you like us to augment MRL (Maximum residue limits) values, defined by APVMA, to the dataset?
+          </label>
+          <div className="flex gap-4">
+            <ToggleButtonGroup value={toAppendMRL} onChange={setAppendMRL} />
+          </div>
+        </div>
+
+        {/* Metabolites question */}
+        <div>
+          <div className="flex items-center gap-2 mb-2">
+            <label className="font-medium">
+              Are metabolites or derivatives included?
+            </label>
+
+            <div className="relative group w-fit cursor-pointer">
+              <Info className="text-sm w-[18px] text-[#aaa]" />
+
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                This will help us to our search in additional lists of antimicrobials.
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex gap-4">
+            <button
+              type="button"
+              onClick={() => setMetabolites('yes')}
+              className={buttonClass(metabolites === 'yes')}
+            >
+              Yes
+            </button>
+            <button
+              type="button"
+              onClick={() => setMetabolites('no')}
+              className={buttonClass(metabolites === 'no')}
+            >
+              No
+            </button>
+            <button
+              type="button"
+              onClick={() => setMetabolites('not_sure')}
+              className={buttonClass(metabolites === 'not_sure')}
+            >
+              Not sure
+            </button>
+          </div>
+        </div>
         <div className='flex justify-between mt-5'>
-          <button className="btn bg-gray-100 hover:bg-gray-200 text-black " onClick={() => navigate('/sample-type')}>Back</button>
-          <button className="btn" onClick={() => navigate('/microorganism')}>Next</button>
+          <button className="btn bg-gray-100 hover:bg-gray-200 text-black " onClick={() => navigate('/ast')}>Back</button>
+          <button className="btn" onClick={() => navigate('/args')}>Next</button>
         </div>
       </div>
     </FormWrapper>
