@@ -17,7 +17,7 @@ export default function AntimicrobialPresenceData() {
         <div>
           <label className="block font-medium mb-1">
             Which column lists the antimicrobials?
-            <div className="relative group cursor-pointer">
+            {/* <div className="relative group cursor-pointer">
               <span className="text-white bg-gray-500 rounded-full w-5 h-5 flex items-center justify-center text-sm">
                 i
               </span>
@@ -25,7 +25,7 @@ export default function AntimicrobialPresenceData() {
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10">
                 This refers to whether the data includes any columns about bacteria, viruses, or fungi present in the sample.
               </div>
-            </div>
+            </div> */}
           </label>
           <input className="input w-full" placeholder="Column name" />
         </div>

@@ -38,7 +38,7 @@ export default function App() {
           </aside>
         )}
 
-        <main className={`flex-1 w-[75%] overflow-y-auto ${inWizard ? 'px-8 py-10' : 'p-0'}`}>
+        <main className={`flex-1 w-[75%] overflow-y-auto ${inWizard ? 'overflow-y-auto px-8 py-10' : 'overflow-hidden p-0'}`}>
           <Routes>
             <Route path="/"                element={<Home />} />
             {/* wizard routes */}
