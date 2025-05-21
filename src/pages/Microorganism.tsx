@@ -54,7 +54,22 @@ export default function MicroorganismPage() {
         {/* 2. Format selection */}
         {hasMicroorganism === 'yes' && (
           <div>
-            <label className="block font-medium mb-2">What format is the data recorded in?</label>
+            <div className="flex items-center gap-2 mb-2">
+              <label className="font-medium">
+                What format is data stored in?
+              </label>
+
+              <div className="relative w-fit">
+                <div className="group w-fit cursor-pointer">
+                  <Info className="text-sm w-[18px] text-[#aaa]" />
+
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                    <strong>Wide format</strong>: Each microorganism has its own column.<br />
+                    <strong>Long format</strong>: All microorganism information is stored in a single column, with each row representing a different organism.
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="flex gap-4">
               <button
                 type="button"

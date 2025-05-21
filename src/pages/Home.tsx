@@ -19,6 +19,12 @@ export default function Home() {
             >
               Upload data
             </Link>
+            <Link
+              to="/upload"
+              className="inline-block outline hover:bg-white hover:text-black text-white rounded-lg ml-5 px-5 py-3 text-md font-semibold hover:opacity-90 transition"
+            >
+              See documentation
+            </Link>
           </div>
         </div>
       </div>

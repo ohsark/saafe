@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FormWrapper from '../components/FormWrapper';
 import { useNavigate } from 'react-router-dom'
+import { Info } from 'lucide-react';
 
 export default function SampleType() {
   const [locationInfo, setLocationInfo] = useState<'yes' | 'no' | null>(null);
@@ -25,9 +26,21 @@ export default function SampleType() {
 
         {/* 1: Sample type column */}
         <div>
-          <label className="block font-semibold mb-1">
-            Sample type column
-          </label>
+          <div className="flex items-center gap-2 mb-2">
+            <label className="font-medium">
+              Sample type column
+            </label>
+
+            <div className="relative w-fit">
+              <div className="group w-fit cursor-pointer">
+                <Info className="text-sm w-[18px] text-[#aaa]" />
+
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                  Categorizes sample based on their nature and origin, such as water, soil, plant tissue etc.
+                </div>
+              </div>
+            </div>
+          </div>
           <input className="input w-full" placeholder="Column name" />
         </div>
 

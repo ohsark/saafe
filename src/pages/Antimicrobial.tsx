@@ -10,45 +10,48 @@ export default function AntimicrobialPresenceData() {
   const [metabolites, setMetabolites] = useState<'yes' | 'no' | 'not_sure' | null>(null);
 
   return (
-    <FormWrapper title="Antimicrobial use data">
+    <FormWrapper title="Antimicrobial use">
       <div className="space-y-6 max-w-2xl">
 
         {/* Antimicrobial column */}
         <div>
-          <label className="block font-medium mb-1">
-            Which column lists the antimicrobials?
-            {/* <div className="relative group cursor-pointer">
-              <span className="text-white bg-gray-500 rounded-full w-5 h-5 flex items-center justify-center text-sm">
-                i
-              </span>
+          <div className="flex items-center gap-2 mb-2">
+            <label className="font-medium">
+              Which column contains antimicrobials information?
+            </label>
 
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                This refers to whether the data includes any columns about bacteria, viruses, or fungi present in the sample.
+            <div className="relative w-fit">
+              <div className="group w-fit cursor-pointer">
+                <Info className="text-sm w-[18px] text-[#aaa]" />
+
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                  Antimicrobials may include treatments for water, antifungals or pesticides in horticulture, antibiotics in livestock, and other chemical or physical water treatments.
+                </div>
               </div>
-            </div> */}
-          </label>
+            </div>
+          </div>
           <input className="input w-full" placeholder="Column name" />
         </div>
 
         {/* Detection method toggle */}
-        <div>
+        {/* <div>
           <label className="block font-medium mb-2">
             Is the detection method recorded?
           </label>
           <div className="flex gap-4">
             <ToggleButtonGroup value={hasMethod} onChange={setHasMethod} />
           </div>
-        </div>
+        </div> */}
 
         {/* Method column if yes */}
-        {hasMethod === 'yes' && (
+        {/* {hasMethod === 'yes' && (
           <div>
             <label className="block font-medium mb-1">
               Which column stores the detection method?
             </label>
             <input className="input w-full" placeholder="Column name" />
           </div>
-        )}
+        )} */}
 
         {/* Concentration toggle */}
         <div>

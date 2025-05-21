@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FormWrapper from '../components/FormWrapper';
 import { useNavigate } from 'react-router-dom'
+import { Info } from 'lucide-react';
 
 export default function ASTPage() {
   const navigate = useNavigate()
@@ -31,9 +32,21 @@ export default function ASTPage() {
         {/* Section 1: AST Setup */}
         <section className="space-y-4">
           <div>
-            <label className="block font-medium mb-1">
-              What guideline was followed for AST? (e.g. CLSI, EUCAST)
-            </label>
+            <div className="flex items-center gap-2 mb-2">
+              <label className="font-medium">
+                What guideline was followed for AST?
+              </label>
+
+              <div className="relative w-fit">
+                <div className="group w-fit cursor-pointer">
+                  <Info className="text-sm w-[18px] text-[#aaa]" />
+
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                    (e.g. CLSI, EUCAST)
+                  </div>
+                </div>
+              </div>
+            </div>
             <input
               className="input w-full"
               value={guideline}
@@ -55,9 +68,21 @@ export default function ASTPage() {
           </div>
 
           <div>
-            <label className="block font-medium mb-1">
-              Which AST method was used? (e.g. Disc diffusion, MIC)
-            </label>
+            <div className="flex items-center gap-2 mb-2">
+              <label className="font-medium">
+                Which AST method was used? 
+              </label>
+
+              <div className="relative w-fit">
+                <div className="group w-fit cursor-pointer">
+                  <Info className="text-sm w-[18px] text-[#aaa]" />
+
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                    (e.g. Disc diffusion, MIC)
+                  </div>
+                </div>
+              </div>
+            </div>
             <input
               className="input w-full"
               value={method}
@@ -65,22 +90,22 @@ export default function ASTPage() {
               placeholder=""
             />
           </div>
-        </section>
 
-        {/* MIC Info */}
-        <div>
-          <label className="block font-medium mb-2">Is MIC (minimum inhibitory concentration) info present?</label>
-          <YesNoButtons value={hasMIC} onChange={setHasMIC} />
-        </div>
-
-        {hasMIC === 'yes' && (
+          {/* MIC Info */}
           <div>
-            <label className="block font-medium mb-1">
-              Which column has MIC values?
-            </label>
-            <input className="input w-full" placeholder="Column name" />
+            <label className="block font-medium mb-2">Is MIC (minimum inhibitory concentration) info present?</label>
+            <YesNoButtons value={hasMIC} onChange={setHasMIC} />
           </div>
-        )}
+
+          {hasMIC === 'yes' && (
+            <div>
+              <label className="block font-medium mb-1">
+                Which column has MIC values?
+              </label>
+              <input className="input w-full" placeholder="Column name" />
+            </div>
+          )}
+        </section>
 
         {/* Section 2: AST Result Columns */}
         <section className="space-y-4">

@@ -4,7 +4,7 @@ export const steps = [
   // { label: 'Upload Data',              path: '/upload'  },
   { label: 'Organisation',              path: '/organisation'  },
   { label: 'Sample type',               path: '/sample-type'   },
-  { label: 'Antimicrobial presence',    path: '/antimicrobial' },
+  { label: 'Antimicrobial use',    path: '/antimicrobial' },
   { label: 'Microorganisms',            path: '/microorganism' },
   { label: 'AST',                       path: '/ast'           },
   { label: 'Residues',                  path: '/residues'           },

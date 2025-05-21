@@ -18,7 +18,7 @@ export default function UploadData() {
       <button type="button" className="btn mt-5 mb-3">Upload file</button>
 
       <fieldset className='mt-4'>
-        <legend className="block font-medium mt-4 mb-1">Which type of data does the database contain</legend>
+        <legend className="block font-medium mt-4 mb-1">Which type of data does the database contain?</legend>
         {[
           'Antimicrobial susceptibility testing',
           'Antimicrobial residues',
@@ -33,10 +33,10 @@ export default function UploadData() {
       </fieldset>
 
       <fieldset className='mt-4'>
-        <legend className="block font-medium mt-4 mb-1">How this pplatform can help you?</legend>
+        <legend className="block font-medium mt-4 mb-1">How this platform can help you?</legend>
         {[
           'Standardise microorganisms name', 
-          'Standardise antimcirobials name',
+          'Standardise antimicrobials name',
           'Augment additonal information to the dataset',
           'Add Maximum residue limits to the dataset',
           'Compute summary statistics for the dataset'
@@ -47,9 +47,11 @@ export default function UploadData() {
           </label>
         ))}
       </fieldset>
-
-      <legend className="block font-medium mt-6 mb-1">In the following sections, we will ask some questions about the data that you uploaded. The answers will help us to map your dataset according to the standardised SAAFE CRC data format for antimicrobials. <a className='underline text-blue-600 hover:text-blue-800 visited:text-purple-600' href="/">Learn more</a></legend>
-      <button type="button" className="btn mt-3" onClick={() => navigate('/organisation')}>Start mapping</button>
+      <div className='my-[40px]'>
+        <legend className="block font-medium mb-1">In the following sections, we will ask some questions about the data that you uploaded. The answers will help us to map your dataset according to the standardised SAAFE CRC data format for antimicrobials. <a className='underline text-blue-600 hover:text-blue-800 visited:text-purple-600' href="/">Learn more</a></legend>
+        <button type="button" className="btn mt-3" onClick={() => navigate('/organisation')}>Start mapping</button>
+      </div>
+      
     </FormWrapper>
   )
 }

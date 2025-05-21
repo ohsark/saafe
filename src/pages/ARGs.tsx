@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FormWrapper from '../components/FormWrapper';
 import { useNavigate } from 'react-router-dom'
+import { Info } from 'lucide-react';
 
 export default function ARGsPage() {
   const navigate = useNavigate()
@@ -25,7 +26,7 @@ export default function ARGsPage() {
           {hasARGs === 'yes' && (
             <div className='mt-5'>
               <label className="block font-medium mb-1">
-                Which column contains the ARGs? e.g. arg_gene_col
+                Which column contains the ARGs?
               </label>
               <input
                 className="input mt-2 w-full"
@@ -40,9 +41,21 @@ export default function ARGsPage() {
         {/* Detection method - only show if hasARGs === 'yes' */}
         {hasARGs === 'yes' && (
           <div>
-            <label className="block font-medium mb-2">
-              Is there a column showing the detection method used (e.g. PCR, sequencing)?
-            </label>
+            <div className="flex items-center gap-2 mb-2">
+              <label className="font-medium">
+                Is there a column showing the detection method used?
+              </label>
+
+              <div className="relative w-fit">
+                <div className="group w-fit cursor-pointer">
+                  <Info className="text-sm w-[18px] text-[#aaa]" />
+
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 w-64 text-sm p-2 bg-black text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                    (e.g. PCR, sequencing)
+                  </div>
+                </div>
+              </div>
+            </div>
             <YesNoButtons value={hasMethod} onChange={setHasMethod} />
             {hasMethod === 'yes' && (
               <input
