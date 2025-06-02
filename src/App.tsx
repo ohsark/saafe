@@ -11,6 +11,7 @@ import ASTPage from './pages/AST';
 import Residues from './pages/Residues';
 import ARGsPage from './pages/ARGs';
 import Review from './pages/Review';
+import Documentation from './pages/Documentation';
 
 export default function App() {
   const location = useLocation();
@@ -51,6 +52,7 @@ export default function App() {
             <Route path="/residues"        element={<Residues />} />
             <Route path="/args"            element={<ARGsPage />} />
             <Route path="/review"          element={<Review />} />
+            <Route path="/docs"          element={<Documentation />} />
           </Routes>
         </main>
       </div>
